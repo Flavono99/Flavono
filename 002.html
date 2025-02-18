@@ -5,26 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box1,.box2,.box3{height: 400px ;}
-        .box1{width: 80%; background-color: pink;
-        background-image: url(C:\images/dot_01.gif);}
-        .box2{width: 70%; background-color: skyblue;
-        background-image: url(C:\images/cloud.png);
-        font-size: 200px; font-weight: bold; text-align:center;}
-        .box3{width: 60%; background-color: lemonchiffon;
-        background: url(C:\images/sun.png)no-repeat 20%, 30%,
-        url(C:\수업용 이미지\rabbit.png)repeat-x left center,
-        url(수업용 이미지\sun.png)repeat-y center top;}
-    
+        table, th, td{border: 1px solid #999; border-collapse: collapse;}
+        table{width: 50%; text-align: center;}
+        th, td{width: 25%; padding: 20px;}
+        th{background-color: rgb(127, 255, 212, 0.3);}
+        div{border: 1px solid #333; margin-top: 50px; width: 500px; height: 100px;
+            background-color: bisque; border-radius: 50px;
+            font-size: 100px; font-weight: 500; text-align: center;}
+            
     </style>
-
 </head>
 <body>
-        <h1>이미지 경로</h1>
-        <img src="C:\images\tree.png" alt="tree">
-        <div class="box1">box1</div>
-        <div class="box2">box2</div>
-        <div class="box3">box3</div>
-
+    <h1>전국의 중식점 가격표</h1>
+    <table>
+        <tr>
+            <th rowspan="2">서을</th>
+            <th>짜장면</th>
+            <th>짬뽕</th>
+            <th>볶음밥</th>
+        </tr>
+        <tr>
+            <!-- <th>서울</th> -->
+            <td>8000</td>
+            <td>9000</td>
+            <td>12000</td>
+        </tr>
+        <tr>
+            <th>대전</th>
+            <td>7000</td>
+            <td>8000</td>
+            <td>10000</td>
+        </tr>
+        <tr>
+            <th>부산</th>
+            <td>6000</td>
+            <td>7000</td>
+            <td>11000</td>
+        </tr>
+    </table>
+    <div>box1</div>
 </body>
 </html>
