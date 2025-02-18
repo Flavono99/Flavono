@@ -3,33 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="대전, 메타버스, html, css , java Script">
-    <meta name="description" content="대전에 위치한 메타버스 아이디어팀 입니다">
-    <!-- <meta http-equiv="refresh" content="3;url=http://www.naver.com"> -->
     <title>Document</title>
-<style>
-    *{box-sizing: border-box;}
-    h1{font-size: 10vw; text-align: center;}
-    div{border: 1px solid red; padding: 20px; float: left;}
-   .box1{width: 20%;}
-   .box2{width: 60%;}
-   .box3{width: 20%; margin-bottom: 30px;}
-   .down{height: 200px; background-color: indianred; clear: both;}
+    <style>
+        *{box-sizing: border-box; margin: 0; padding: 0;}
+       header{border: 2px solid red; overflow: hidden;}
+       header div{border: 1px solid blue; height: 200px; float: left;} 
+       header .box1{width: 20%;}
+      .box2{width: 60%;}
+      .box2 ul{border: 1px solid pink; padding: 0; list-style: none; font-size: 0;}
+      .box2 ul li{border: 1px solid #ccc; width: 20%; padding: 5px; 
+       display: inline-block; font-size: 16px; text-align: center;}
+      .box3{width: 20%;}
+      .box4{width: 400px; height: 200px; border: 3px solid #ccc;
+       clear:both; overflow: hidden; }
 
-   @media screen and (max-width:1000px) and (min-width: 700px) {
-   .box1,.box2,.box3{width: 100%;}
-   .box1{background-color: aquamarine;}
-   .box2{background-color: beige;}
-   }
-</style>
+@media screen and (max-width: 600px){
+    header {height: 250px;}
+.box2 ul li{display: block; width: 100%; background-color: aquamarine;} 
+}
+
+    </style>
 </head>
 <body>
-    <h1>Just do it. MMMM</h1>
-    <p>폰트사이즈는 px, %, em, vw 등 다양한 단위를 사용할 수 있다. <br>
-    vw는 vieport의 width를 기준으로 한다.</p>
-    <div class="box1">box1</div>
-    <div class="box2">box2</div>
-    <div class="box3">box3</div>
-    <p class="down">얘는 div 밑에 있는 콘텐츠 </p>
+    <h1>선택자</h1>
+    <header>
+     <div class="box1">
+        <h2>로고</h2>
+    </div>
+
+    <div class="box2">
+        <h2>메뉴바</h2>
+        <ul>
+            <li><a href="#">naver01</a></li>
+            <li><a href="#">naver01</a></li>
+            <li><a href="#">naver01</a></li>
+            <li><a href="#">naver01</a></li>
+            <li><a href="#">naver01</a></li>
+        </ul>
+        </div>
+
+     <div class="box3">
+        <h2>검색창</h2>
+        </div>
+    </header>
+    <div class="box4">우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이는 집갈래...
+        우리는...사나이... 진짜...사나이...씩씩하고...용감한...사나이...
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이...
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+        우리는...사나이...진짜...사나이...씩씩하고...용감한...사나이... 
+    </div>
 </body>
 </html>
