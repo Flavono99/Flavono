@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        iframe{width: 1000px; height: 562px;}
+        *{margin: 0; padding: 0; /*border: 1px solid blue;*/}
+        div{width: 800px; height: 800px; border: 3px solid #333;
+            margin: auto; position: relative;}
+        p{width: 150px; height: 100px; border: 1px solid red;
+          position: absolute; text-align: center; line-height: 100px;}
+        P:nth-of-type(1) {left:0; top:0;}
+        P:nth-of-type(2) {right:0; top:0;}
+        P:nth-of-type(3) {left: 50%; top: 50%; margin-left: -75px; margin-top: -50px;}
+        /* {left: 50%; top: 50%; transform: translate(-50%, -50%);} */
+        P:nth-of-type(4) {left:0; bottom:0;} 
+        P:nth-of-type(5) {right:0; bottom:0;} 
+       
     </style>
 </head>
 <body>
-    <h1>video콘텐츠 다루기</h1>
-    <video controls autoplay muted>
-    <source src="C:\Users\dw-014\Desktop\Flavono\수업용 이미지2\images\images\mov.mp4" type="video/mp4"
-    당신의 웹브라우저는 해당 영상을 지원하지 않습니다>
-    </video>
-    <iframe src="https://www.youtube.com/live/4Df04ViiX5U?si=0jiMikgKo790uFDY" title="유튜브 냥 플리" frameborder="0"> 
-       </iframe>
+    <div>
+        <p>left/top</p>
+        <p>right/top</p>
+        <p>center/middle <br>center/middle <br>center/middle <br>center/middle<br>center/middle</p>
+        <p>left/bottom</p>
+        <p>right/bottom</p>
+    </div>
 </body>
 </html>

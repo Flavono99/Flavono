@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title>    
     <style>
-        select{width: 300px; height: 30px; font-size: 18px;}
-        #selectbox2{margin-top: 20px;}
-        #jump{background-color: aquamarine; color:red;}
+        *{margin: 0; padding: 0;}
+        div{width: 1000px; height: 400px; margin: auto; border: 1px solid red; position: relative;}
+        h1{background-color: indianred;position: relative; top: 20px; left: 30px; z-index: -10;}
+        p{background-color: plum; height: 100px; position: absolute; 
+          right: 0px; top: 80px; z-index:11;} 
+        section{background-color: beige; height: 100px; z-index: 10; 
+                position:relative; opacity: 0.8;} 
+        
     </style>
 </head>
 <body>
-    <h1>select 기능에 대해 알아보자</h1>
-    <div id="selectbox2">
-        <label for="jump">familysite</label>
-        <select id="jump" title="jumpmenu" onchange="window.open(this.
-        options[this.selectedIndex]. value,'_blank')">
-        <option>***familysite like***</option>
-        <option value="http://www.sktelecom.com">SKtelecom</option>
-        <option value="http://www.naver.com">SKkemical</option>
-        <option value="http://www.skhynix.com">Skhynix</option>
-        <option value="http://www.tworld.co.kr">Tworld</option>
-        <option value="http://www.adot.com">Adot</option>
-        </select>
+    <div>
+        <h1>position</h1>
+        <p>position속성을 적용하면 추가로 부여할 수 있는 다양한 기능이 생성된다.</p>
+        <section>나는 p태그 아래에 있는 콘텐츠</section>
     </div>
-    <textarea>
-
-    </textarea>
 </body>
 </html>

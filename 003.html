@@ -5,24 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @font-face{
-        font-family:'cookie';
-        font: weight 900;
-        src:url('font/cookie/cookie.eot');
-        src:url('font/cookie/cookie.eot')format('embedded-opentype'),
-        url('font/cookie/cookie.woff')format('woff'),
-        url('font/cookie/.ttf')format('truetype');
-        }
-        p{width: 1000px;margin: auto;border: 1px solid #ccc;
-            font-family: cookie;
-            line-height: 160%; color: #333;
-            letter-spacing: -1px;
-            font-size: 20px;
-            text-align: justify;}
+        div{border: 1px solid red; height: 200px; min-width: 1000px;}
+        p{border: 1px solid blue; background-color: aquamarine;
+        display: none;}
+        div:hover p{display: block;}
+        div:hover section{visibility: visible;}
+        span{border: 2px solid indianred;}
+        section{border: 1px solid purple;background-color: pink; height: 70px; 
+                margin: 20px; visibility: hidden;}
     </style>
 </head>
 <body>
-    <h1>내가 제공하는 웹폰트서비스</h1>
-    <p>카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다. 카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.카페24 서체를 다운받아 3개의 파일을 생성하고, 이를 통해 웹폰트로 운영한다.</p>
+    <h1>display 속성중에서 none이라는 값을 주면 어떤일이 벌어질까?</h1>
+    <div>
+        <p>나는 사라질거야.</p>
+        <span>위에 있는 요소가 사라지면 나는 어떻게 될까?</span>
+        <section>나도 사라질거야...</section>
+        <span>위에 있는 요소가 사라지면 나는 어떻게 될까?</span>
+    </div>
 </body>
 </html>
