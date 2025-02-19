@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select{width: 300px; height: 30px; font-size: 18px;}
+        #selectbox2{margin-top: 20px;}
+        #jump{background-color: aquamarine; color:red;}
+    </style>
+</head>
+<body>
+    <h1>select 기능에 대해 알아보자</h1>
+    <div id="selectbox2">
+        <label for="jump">familysite</label>
+        <select id="jump" title="jumpmenu" onchange="window.open(this.
+        options[this.selectedIndex]. value,'_blank')">
+        <option>***familysite like***</option>
+        <option value="http://www.sktelecom.com">SKtelecom</option>
+        <option value="http://www.naver.com">SKkemical</option>
+        <option value="http://www.skhynix.com">Skhynix</option>
+        <option value="http://www.tworld.co.kr">Tworld</option>
+        <option value="http://www.adot.com">Adot</option>
+        </select>
+    </div>
+    <textarea>
+
+    </textarea>
+</body>
+</html>
