@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div { width: 450px; height: 200px; padding: 10px; border: 1px solid red;
+            margin: 10px; border-radius: 5px; position: relative; }
+
+        .box1 { background-color: white; }
+        .box2 { border: 1px solid red; }
+
+        p { width: 200px; height: 30px; text-align: center; line-height: 30px;
+            border: 2px solid grey; margin: 10px; cursor: pointer; display: inline-block;
+            background-color: gray;  border-radius: 5%; color: white; text-align: center;}
+
+        .apple {width: 30px; height: 30px; padding: 30px; background-color: red;
+                position: absolute; border-radius: 50%;  display: flex; justify-content: center; 
+                align-items: center;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var apple = $('<div class="apple">aplle</div>'); // 요소 생성
+            $('.box1').append(apple); // 기본 위치를 box1으로 설정
+
+            $('.박스2').on('click', function(){
+                $('.box2').append($('.apple')); // box2로 이동
+            });
+
+            $('.박스1').on('click', function(){
+                $('.box1').append($('.apple')); // box1로 다시 이동
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <p class="박스1">박스 1로 옮기기</p>
+    
+    <div class="box2">box2</div>
+    <p class="박스2">박스 2로 옮기기</p>
+</body>  
+</html>
