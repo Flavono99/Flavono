@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style: none; padding: 0;}
+
+        div {
+            width: 1000px;
+            height: 320px;
+            margin: auto;
+            border: 5px solid #333;
+            background-color: #111;
+            margin-top: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        ul { position: relative; }
+        li { position: absolute; left: 0; top: 0; width: 100%; }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('ul li:gt(0)').hide(); // 첫 번째 li 제외하고 모두 숨기기
+
+            setInterval(function(){
+                $('ul li:first-child').fadeOut(function(){
+                    $(this).next('li').fadeIn().end().appendTo('ul');
+                });
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src="img1/01.jpg" width="1000" height="320"></li>
+            <li><img src="img1/02.jpg" width="1000" height="320"></li>
+            <li><img src="img1/03.jpg" width="1000" height="320"></li>
+       
+        </ul>
+    </div>
+</body>
+</html>

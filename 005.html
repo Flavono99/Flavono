@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴바에 커서 올리면 메뉴바 내려옴</title>
+    <style>
+        *{margin: 0; padding: 0}
+        body{font-size: 13px; color: #333;}
+        a{text-decoration: none; color: #333;}
+        a:hover{color: antiquewhite;}
+        ul{list-style: none;}
+        
+    nav{width: 960px; margin: 0 auto;}
+        #main{background-color: #4d4d4d; padding:10px 0;}
+        #main ul{overflow: hidden;}
+        #main li{width: 192px; float: left; text-align: center;}
+        #main li a{color: white;}
+
+        #sub{background-color: rgba(0, 0, 0, 0.4); border-bottom:1px solid #CCC; overflow: hidden;
+        position: absolute;}
+        .menu{width: 192px; float: left;}
+        .menu a{display: block; padding: 7px 0; text-indent: 60px;}
+        p{text-align: center;}
+    </style>
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+    <script>
+         $(function(){
+            $('#sub').hide();
+            $('nav').hover(function(){
+                $('#sub').stop().slideDown();
+            }),function(){
+                ('#sub').slideUp();
+            };
+         });
+    </script>
+</head>
+<body>
+    <nav>
+        <div id="main">
+            <ul>
+                <li><a href="#">타슈</a></li>
+                <li><a href="#">스테이션 조회</a></li>
+                <li><a href="#">이용방법</a></li>
+                <li><a href="#">마이타슈</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </div>
+        <div id="sub">
+            <ul class="menu">
+                <li><a href="#">타슈소개01</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">서비스안내</a></li>
+                <li><a href="#">의무와 책임</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#">타슈소개02</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">서비스안내</a></li>
+                <li><a href="#">의무와 책임</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#">타슈소개03</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">서비스안내</a></li>
+                <li><a href="#">의무와 책임</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#">타슈소개04</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">서비스안내</a></li>
+                <li><a href="#">의무와 책임</a></li>
+            </ul>
+            <ul class="menu">
+                <li><a href="#">타슈소개05</a></li>
+                <li><a href="#">이용안내</a></li>
+                <li><a href="#">서비스안내</a></li>
+                <li><a href="#">의무와 책임</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="box">
+        <p><img src="http://placehold.co/960x480"></p>
+</body>
+</html>

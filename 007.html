@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> kitty slide images </title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        h1{text-align: center; margin-top: 50px;}  
+        .slider{width: 960px; margin: 250px auto;}
+        .slider{width: 900px; margin: 300px auto;} 
+        .slider img { width: 95%; height: 500px; object-fit: contain;}
+    </style>
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="slick/slick.js"></script>
+    <script>
+        $(function(){
+            $('.slider').slick({
+                dots:true,
+            });
+        });
+    </script>
+    <style>
+        .slick-prev::before, .slick-next::before{color: red;}
+        .slick-prev, .slick-next{position: absolute; z-index: 1000;}
+        .slick-prev{left: 20px;}
+        .slick-next{right: 20px;}
+
+    </style>
+</head>
+<body>
+    <h1>𓆩🖤𓆪Hello Kitty slide𓆩🖤𓆪</h1>
+    <section class="slider">
+        <div>
+            <img src="kitty/kitty1.jpg">
+        </div>
+        <div>
+            <img src="kitty/kitty2.jpg">
+        </div>
+        <div>
+            <img src="kitty/kitty3.jpg">
+        </div>
+        <div>
+            <img src="kitty/kitty4.png">
+        </div>
+        <div>
+            <img src="kitty/kitty5.jpg">
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>핑크색 반응형 네비게이션</title>
+        <!-- 메뉴바에 커서 올리면 색상바뀜 -->
+    <style>
+        *{margin: 0; padding: 0;}
+        body{background:url(img2/SUN.jpg) no-repeat center center fixed;
+            background-size:  cover;}
+        nav{height: 40px; background-color: lightpink; font-weight: bold;
+        border-bottom: 2px solid #111}
+        ul{width: 900px; margin: auto; height: 40px; /*border:1px solid rgb(0, 0, 0); */
+            list-style: none;}     
+        li{float: left;}
+        li a{display: inline-block; width: 150px; text-decoration: none;
+        color: white; text-align: center; line-height: 40px; 
+        text-shadow: 1px 1px 0 #000; border-right: 1px solid #ccc; 
+        box-sizing: border-box;}   
+        a:hover{background-color: aliceblue;}
+        li:nth-of-type(6) a{border-right: 0;}
+        #trigger{display: none;}
+
+        /*여기부터 태블릿 공간*/
+        @media screen and (max-width:1024px) {
+            nav{border: 1px solid #666; font-size: 14px; font-weight: normal;}
+            ul{width: 80%;}
+            li{width: 16.6%; height: 40px;}
+            li a{width: 100%;}
+        }
+
+        /* 여기부터 mobile 공간 */
+        @media screen and (max-width:500px) {
+            nav{border-bottom:0; background-color: red;}
+            ul{display: none; height: auto; width: 1000%;}
+            li{float: none; width: 100%;}
+            li a{width: 100%;}
+
+         #trigger{display: block; border-bottom: 1px solid #222;}
+         #trigger:after{content: ''; background: url(img2/nav.png) no-repeat;
+            width: 20px; height: 20px; display: inline-block; position: absolute;
+            right: 20px; top: 10px;}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">WEB</a></li>
+        <li><a href="#">DESING</a></li>
+        <li><a href="#">MAP</a></li>
+        <li><a href="#">CONTACT</a></li>
+    </ul>
+    <a href="#" id="trigger"></a>
+    </nav>
+</body>
+</html>
