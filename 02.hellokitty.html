@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헬로키티 홈페이지</title>
+    <link rel="stylesheet" href="PINK.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="PINK.js"></script>
+    
+    <style>
+        body {
+            background: linear-gradient(180deg, #FFC8C8, #FFDEE9, #D4FCF7);
+            transition: background 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #555;
+            margin: 0;
+        }
+
+        nav {
+            background: #F5A9B8;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 80px;
+            z-index: 2000;
+        }
+
+        .content {
+            margin-top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .kitty-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .kitty-img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            position: absolute;
+        }
+
+        /* 이미지가 고스톱 카드처럼 겹쳐지도록 위치 조정 */
+        .kitty-container:nth-child(1) .kitty-img { transform: rotate(-10deg) translateX(-20px); }
+        .kitty-container:nth-child(2) .kitty-img { transform: rotate(-5deg) translateX(-10px); }
+        .kitty-container:nth-child(3) .kitty-img { transform: rotate(0deg) translateX(0px); }
+        .kitty-container:nth-child(4) .kitty-img { transform: rotate(5deg) translateX(10px); }
+        .kitty-container:nth-child(5) .kitty-img { transform: rotate(10deg) translateX(20px); }
+
+        .animated-gif {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 120px;
+            z-index: 3000;
+        }
+
+        /* 버튼을 왼쪽 상단에 고정 */
+        .buttons-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2000;
+        }
+
+        /* 개별 버튼 스타일 */
+        .show-image-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 6px rgba(255, 20, 147, 0.5);
+        }
+
+        /* 개별 버튼 색상 */
+        .btn1 { background-color: #FF69B4; }
+        .btn2 { background-color: #FFB6C1; }
+        .btn3 { background-color: #FF4500; }
+        .btn4 { background-color: #FFD700; }
+        .btn5 { background-color: #87CEFA; }
+    </style>
+</head>
+
+<body>
+    <img src="img2/kitty/kittylogo.jpg" alt="헬로키티 로고" class="logo">
+    
+    <nav></nav>
+    
+    <!-- 버튼을 별도로 분리하여 왼쪽 상단 고정 -->
+    <div class="buttons-container">
+        <button class="show-image-btn btn1" data-target="1">보기 1</button>
+        <button class="show-image-btn btn2" data-target="2">보기 2</button>
+        <button class="show-image-btn btn3" data-target="3">보기 3</button>
+        <button class="show-image-btn btn4" data-target="4">보기 4</button>
+        <button class="show-image-btn btn5" data-target="5">보기 5</button>
+    </div>
+
+    <div class="content">
+        <div class="kitty-container">
+            <img class="kitty-img" id="img1" src="img2/kitty/pinkangel.jpg" alt="키티 이미지 1">
+        </div>
+        <div class="kitty-container">
+            <img class="kitty-img" id="img2" src="img2/kitty/skyblueangel.jpg" alt="키티 이미지 2">
+        </div>
+        <div class="kitty-container">
+            <img class="kitty-img" id="img3" src="img2/kitty/devilkitty.jpg" alt="키티 이미지 3">
+        </div>
+        <div class="kitty-container">
+            <img class="kitty-img" id="img4" src="img2/kitty/musclekitty.jpg" alt="키티 이미지 4">
+        </div>
+        <div class="kitty-container">
+            <img class="kitty-img" id="img5" src="img2/kitty/gunkitty.jpg" alt="키티 이미지 5">
+        </div>
+    </div>
+
+    <img src="img2/kitty-animation.gif" alt="움직이는 헬로키티" class="animated-gif">
+
+    <script>
+        $(document).ready(function() {
+            $(".show-image-btn").click(function() {
+                let targetId = "#img" + $(this).data("target");
+                $(targetId).css("opacity", 1); // 해당하는 이미지 표시
+                $(this).hide(); // 버튼 숨기기
+            });
+        });
+    </script>
+</body>
+</html>
