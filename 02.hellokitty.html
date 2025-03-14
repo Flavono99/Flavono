@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>헬로키티 홈페이지</title>
+    <link rel="stylesheet" href="PINK.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="PINK.js"></script>
+    
+    <style>
+        /* 페이지 전체 스타일 */
+        body {
+            background: linear-gradient(180deg, #FFC8C8, #FFDEE9, #D4FCF7);
+            transition: background 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #555;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(90deg, #FFDEE9, #FFDEE9);
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        /* 버튼 스타일 */
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(255, 20, 147, 0.5);
+            font-weight: bold;
+        }
+
+        .btn1 { background-color: #FF69B4; }
+        .btn2 { background-color: #FFB6C1; }
+        .btn3 { background-color: #FF4500; }
+        .btn4 { background-color: #FFD700; }
+        .btn5 { background-color: #87CEFA; }
+
+        /* 이미지 컨테이너 스타일 */
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 450px;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* 이미지 등장 애니메이션 효과 */
+        .kitty-container {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8) rotate(-10deg);
+            transition: all 0.7s ease-in-out;
+        }
+
+        .kitty-container img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .kitty-container img:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+         /* 헬로키티 소개 메모 박스 스타일 */
+         .memo-box {
+            position: fixed;
+            top: 150px;
+            left: 20px;
+            background: #FFB6C1;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            width: 250px;
+            font-weight: bold;
+        }
+
+        /* 오른쪽 하단 움직이는 GIF */
+        .animated-gif {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 120px;
+            height: auto;
+            z-index: 3000;
+        }
+    </style>
+     <script>
+        $(document).ready(function() {
+        $(".logo").click(function() {
+            window.location.href = "01.MAIN.html"; // 현재 사이트의 기본 URL로 이동 
+        });
+    });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(".menu button").click(function() {
+                let targetId = "#img" + $(this).data("target");
+
+                $(targetId).css({
+                    "display": "block",
+                    "opacity": "0",
+                    "transform": "scale(0.8) rotate(-10deg)"
+                }).animate({
+                    opacity: 1
+                }, {
+                    duration: 700,
+                    step: function(now, fx) {
+                        if (fx.prop === "opacity") {
+                            $(this).css("transform", "scale(" + (0.8 + now * 0.3) + ") rotate(" + (-10 + now * 15) + "deg)");
+                        }
+                    },
+                    complete: function() {
+                        $(this).effect("bounce", { times: 2, distance: 10 }, 300);
+                    }
+                });
+
+                $(this).hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 상단 헤더 (로고 및 메뉴 버튼) -->
+    <div class="header">
+        <img src="img2/kitty/kittylogo.jpg" alt="헬로키티 로고" class="logo">
+        <div class="menu">
+            <button class="btn1" data-target="1">보기 1</button>
+            <button class="btn2" data-target="2">보기 2</button>
+            <button class="btn3" data-target="3">보기 3</button>
+            <button class="btn4" data-target="4">보기 4</button>
+            <button class="btn5" data-target="5">보기 5</button>
+        </div>
+    </div>
+
+    <!-- 헬로키티 소개 메모 박스 -->
+    <div class="memo-box">
+        ✨ 헬로키티 ✨<br><br>
+        1974년 탄생한 헬로키티는 전 세계에서 사랑받는 캐릭터입니다! 🎀<br>
+        귀엽고 따뜻한 감성을 지닌 그녀는 우정을 소중히 여겨요. 💕
+    </div>
+
+    <!-- 이미지 컨테이너 -->
+    <div class="content">
+        <div class="kitty-container" id="img1">
+            <img src="img2/kitty/pinkangel.jpg" alt="키티 이미지 1">
+        </div>
+        <div class="kitty-container" id="img2">
+            <img src="img2/kitty/skyblueangel.jpg" alt="키티 이미지 2">
+        </div>
+        <div class="kitty-container" id="img3">
+            <img src="img2/kitty/devilkitty.jpg" alt="키티 이미지 3">
+        </div>
+        <div class="kitty-container" id="img4">
+            <img src="img2/kitty/musclekitty.jpg" alt="키티 이미지 4">
+        </div>
+        <div class="kitty-container" id="img5">
+            <img src="img2/kitty/gunkitty.jpg" alt="키티 이미지 5">
+        </div>
+    </div>
+
+    <!-- 오른쪽 하단 움직이는 헬로키티 GIF -->
+    <img src="img2/kitty/RunningKitty.jpg" alt="움직이는 헬로키티" class="animated-gif">
+</body>
+</html>

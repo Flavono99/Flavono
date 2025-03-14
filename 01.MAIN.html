@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일 화면 최적화 설정 -->
+    <title>하늘이의 홈페이지</title> <!-- 브라우저 탭에 표시될 제목 -->
+    <link rel="stylesheet" href="PINK.css"> <!-- 외부 스타일시트 연결 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery 라이브러리 연결 -->
+    <script src="PINK.js"></script> <!-- 외부 JavaScript 파일 연결 -->
+
+    <style>
+        /* 🎨 전체 배경을 부드러운 파스텔 그라데이션으로 설정 */
+        body {
+            background: linear-gradient(180deg, #FFC8C8, #FFDEE9, #D4FCF7); /* 파스텔 톤의 그라데이션 배경 */
+            transition: background 0.5s ease-in-out; /* 배경 색상이 부드럽게 전환됨 */
+            background-size: cover; /* 배경 이미지가 화면을 가득 채우도록 설정 */
+            background-position: center; /* 배경 이미지 위치 설정 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 안 함 */
+            background-attachment: fixed; /* 배경 이미지가 스크롤과 함께 움직이지 않도록 고정 */
+            color: #555; /* 기본 텍스트 색상 설정 */
+        }
+
+        /* ✨ 헤더 스타일 - 부드러운 핑크톤 적용 */
+        header {
+            background: linear-gradient(135deg, #FFD1DC); /* 핑크 그라데이션 배경 */
+            color: #444; /* 텍스트 색상 설정 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            padding: 20px; /* 상하 좌우 여백 */
+            font-size: 1.8em; /* 텍스트 크기 설정 */
+            font-weight: bold; /* 텍스트 굵게 설정 */
+            box-shadow: 0 0 15px rgba(255, 182, 193, 0.5); /* 부드러운 그림자 효과 */
+            border-radius: 10px; /* 둥근 모서리 설정 */
+        }
+
+        /* 🎀 네비게이션 바 스타일 - 버튼 배경 조정 */
+        nav {
+            background: linear-gradient(180deg, #FFDEE9, #FFD1DC); /* 부드러운 핑크 그라데이션 */
+            padding: 15px; /* 상하 좌우 여백 */
+            border-radius: 15px; /* 둥근 모서리 설정 */
+            text-align: center; /* 텍스트 중앙 정렬 */
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.5); /* 부드러운 그림자 효과 */
+        }
+
+        /* 🌸 기본 버튼 스타일 - 파스텔 계열 */
+        nav button {
+            padding: 12px 18px; /* 버튼 여백 */
+            font-size: 16px; /* 글씨 크기 */
+            margin: 8px; /* 버튼 간의 간격 */
+            cursor: pointer; /* 마우스 포인터가 버튼 위에 올려지면 커서가 손 모양으로 변함 */
+            border: none; /* 테두리 없애기 */
+            border-radius: 8px; /* 둥근 모서리 설정 */
+            background: linear-gradient(135deg, #FFB6C1, #FFDEE9, #B5EAD7); /* 파스텔 색상 그라데이션 배경 */
+            color: #444; /* 버튼 텍스트 색상 */
+            font-weight: bold; /* 텍스트 굵게 설정 */
+            transition: 0.3s ease-in-out; /* 호버 시 부드러운 전환 효과 */
+        }
+
+        /* ✨ 버튼 위에 마우스를 올리면 각 버튼마다 다른 색상으로 변경 */
+        nav button:nth-child(1):hover { background: linear-gradient(135deg, #FFA69E, #FF758C); } /* 첫 번째 버튼(키티) 호버 시 색상 */
+        nav button:nth-child(2):hover { background: linear-gradient(135deg, #A2D2FF, #BDE0FE); } /* 두 번째 버튼(한교동) 호버 시 색상 */
+        nav button:nth-child(3):hover { background: linear-gradient(135deg, #D8BFD8, #C5E3E8); } /* 세 번째 버튼(디즈니) 호버 시 색상 */
+        nav button:nth-child(4):hover { background: linear-gradient(135deg, #7DCEA0, #B5EAD7); } /* 네 번째 버튼(귀멸의 칼날) 호버 시 색상 */
+        nav button:nth-child(5):hover { background: linear-gradient(135deg, #FFD700, #FFFA87); } /* 다섯 번째 버튼(주술회전) 호버 시 색상 */
+       
+        /* ✨ 버튼 호버 시 네온 효과 유지 */
+        nav button:hover {
+            box-shadow: 0 0 15px rgba(255, 100, 150, 0.7); /* 호버 시 네온 효과 추가 */
+        }
+
+        /* 🎀 메인 이미지 컨테이너 - 부드러운 디자인 */
+        .content {
+            background: rgba(255, 255, 255, 0.3); /* 부드러운 반투명 배경 */
+            padding: 20px; /* 내부 여백 */
+            text-align: center; /* 중앙 정렬 */
+            border-radius: 15px; /* 둥근 모서리 설정 */
+            box-shadow: 0 0 10px rgba(255, 182, 193, 0.4); /* 부드러운 그림자 효과 */
+            max-width: 60%; /* 최대 너비 60%로 설정 */
+            margin: 30px auto; /* 중앙 정렬을 위한 자동 마진 */
+        }
+
+        /* 🎠 메인 이미지 스타일 - 버튼 클릭 시 사라짐 */
+        .content img {
+            display: block; /* 이미지를 블록 요소로 설정 */
+            margin: 20px auto; /* 이미지의 위아래 마진 */
+            max-width: 60%; /* 최대 너비 60%로 설정 */
+            opacity: 0.95; /* 약간 투명한 효과 */
+            position: relative; /* 상대 위치 설정 */
+            z-index: 1; /* z-index 설정으로 이미지가 다른 요소 위에 오도록 설정 */
+            border-radius: 10px; /* 둥근 모서리 설정 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 헤더 - 홈페이지 제목을 표시 -->
+    <header>
+        하늘이의 홈페이지에 오신 것을 환영합니다!
+    </header>
+
+    <!-- 네비게이션 바 - 다른 페이지로 이동할 수 있는 버튼들 -->
+    <nav>
+        <!-- 각 버튼 클릭 시 해당 페이지로 이동 -->
+        <button onclick="window.location.href='02.hellokitty.html';">키티</button>
+        <button onclick="window.location.href='03.Hangyodong.html';">한교동</button>
+        <button onclick="window.location.href='04.disney.html';">디즈니</button>
+        <button onclick="window.location.href='05.gwi-kal00.html';">귀멸의칼날</button>
+        <button onclick="window.location.href='06.jusulhoejeon';">주술회전</button>
+    </nav>
+
+    <!-- 메인 콘텐츠 영역 - 이미지 및 기타 콘텐츠를 담는 영역 -->
+    <main>
+        <div class="content">
+            <!-- 기본 이미지를 담는 영역 (이미지 경로는 src에 설정) -->
+            <img src="img2/khn.jpg" alt="기본 이미지">
+        </div>
+    </main>
+</body>
+</html>

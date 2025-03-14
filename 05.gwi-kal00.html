@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>귀멸의 칼날</title>
+    <link rel="stylesheet" href="PINK.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        /* 페이지 전체 스타일 */
+        body {background-image: url('img2/gwikal/backimg.jpg'); /* 이미지 파일 경로 */
+            background-size: cover; /* 이미지가 화면에 맞게 크기 조정 */
+            background-position: center; /* 이미지가 화면 중앙에 위치하도록 설정 */
+            background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+           /* background: linear-gradient(150deg, #2C3E50 , #34495E , #1A1A1A, #000000); */
+            transition: background 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        /* 헤더 스타일 */
+        .header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: transparent  /* 완전 투명 */
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: none; /* 그림자 제거 (필요하면 유지 가능) */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        }
+
+         .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .menu button {
+            padding: 10px 15px;
+            font-size: 14px;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px black;
+            font-weight: bold;
+        }
+
+        /* 캐릭터별 버튼 색상 */
+        .btn1 { background-color: #B4E7B2 ; }  /* 탄지로 */
+        .btn2 { background-color: #e9899f; }  /* 네즈코 */
+        .btn3 { background-color: #FFFF99; }  /* 젠이츠 */
+        .btn4 { background-color: #A7C7E7 ; }  /* 이노스케 */
+        .btn5 { background-color: #D8A7D9 ; }  /* 시노부 */
+        .btn6 { background-color: #D4AF37  ; }  /* 텐겐 */
+        .btn7 { background-color: #C70039 ; }  /* 쿄쥬로 */
+        .btn8 { background-color: #ADD8E6 ; }  /* 무이치로 */
+        .btn9 { background-color: #FF1493 ; }  /* 미츠리 */
+        .btn10 { background-color: #9ACD32 ; }  /* 오바나이 */
+        .btn11 { background-color: #003366 ; }  /* 기유 */
+        .btn12 { background-color: #BEBEBE; }  /* 사네미 */
+        .btn13 { background-color:#B0C4DE ; }  /* 교메이 */
+
+        /* 캐릭터 컨테이너 */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 80px 20px;
+            justify-content: center;
+            margin-top: 100px;  margin-left: 100px;
+        }
+        
+
+        /* 캐릭터 애니메이션 */
+        .character-container {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            /*transform: scale(0.8) rotate(-10deg);*/
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .character-container img {
+            width: 180px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 69, 0, 0.3);
+        }
+
+        .character-container img:hover {
+            transform: scale(1.1); /*rotate(5deg);*/
+        }
+
+    /* 캐릭터 정보 메모 박스 (배경 투명하게) */
+    .memo-box {
+            position: absolute;
+            background: transparent;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+            color: white;
+            text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff1493;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .memo-box {
+            animation: neon-glow 1.5s infinite alternate;
+        }
+
+        /* 네온 애니메이션 효과 */
+        @keyframes neon-glow {
+            0% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff1493; }
+            50% { text-shadow: 0 0 10px #ff69b4, 0 0 15px #ff1493, 0 0 20px #ff69b4; }
+            100% { text-shadow: 0 0 5px #ff1493, 0 0 10px #ff69b4, 0 0 15px #ff1493; }
+        }
+
+        /* 캐릭터 사진 테두리 제거 */
+        .character-container img {
+        width: 180px;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: none; /* 붉은 테두리 제거 */
+        }  
+
+        #img1 img {width: 240px;} /* 더 크게 설정 */ 
+        #img3 img { width: 250px;} /* 더 크게 설정 */ 
+        #img4 img { width: 350px ;} /* 더 크게 설정 */
+        #img4 {margin-right: 50px;}
+        #img6 img {height: 350px; width: 250px;} /* 더 크게 설정 */ 
+        #img7 img {height: 300px; width: 200px; } /* 더 크게 설정 */ 
+        #img11 img {height: 280px; width: 200px;} /* 더 크게 설정 */ 
+        #img12 img {height: 290px; width: 200px;} /* 더 크게 설정 */ 
+        #img13 img {width: 250px;} /* 더 크게 설정 */ 
+        #img5 {margin-left: 80px;}
+         #img2 img {width: 150px;} /* 더 크게 설정 */ 
+        /*#img13 img {width: 250px;} /* 더 크게 설정 */ 
+        /* 이미지 3번부터 13번까지 왼쪽으로 이동 */
+        #img3 {margin-left : -150px; }#img4 {margin-left : -150px; }
+        #img5 {margin-left : -150px; } #img6{margin-left : -150px; } 
+        #img7 {margin-left : -150px; } #img8{margin-left : -150px; } 
+        #img9 {margin-left : -100px; } #img10{margin-left : -150px; }
+        #img11{margin-left : -150px; } #img12{margin-left : -150px; } 
+        #img13{margin-left : -150px; }
+        /* 캐릭터 사진 hover 효과 유지 */
+        .character-container img:hover {transform: scale(1.1) rotate(5deg);} 
+
+        /* 이미지 3번부터 13번까지 왼쪽으로 이동 */
+        
+        #img3 {margin-left : -130px; margin-right: 8\0px;}#img4 {margin-left : -130px; }
+        #img5 {margin-left : -130px; } #img6{margin-left : -130px; } 
+     
+        /* 캐릭터 사진 hover 효과 유지 */
+        .character-container img:hover {transform: scale(1.1) rotate(5deg);}
+    </style>
+</head>
+<body>
+    <!-- 상단 헤더 -->
+    <div class="header">
+        <img src="" alt="" class="logo">
+        <div class="menu">
+            <button class="btn1" data-target="1">탄지로</button>
+            <button class="btn2" data-target="2">네즈코</button>
+            <button class="btn3" data-target="3">젠이츠</button>
+            <button class="btn4" data-target="4">이노스케</button>
+            <button class="btn5" data-target="5">시노부</button>
+            <button class="btn6" data-target="6">텐겐</button>
+            <button class="btn7" data-target="7">쿄쥬로</button>
+            <button class="btn8" data-target="8">무이치로</button>
+            <button class="btn9" data-target="9">미츠리</button>
+            <button class="btn10" data-target="10">오바나이</button>
+            <button class="btn11" data-target="11">기유</button>
+            <button class="btn12" data-target="12">사네미</button>
+            <button class="btn13" data-target="13">교메이</button>
+        </div>
+    </div>
+
+    <!-- 캐릭터 컨테이너 -->
+    <div class="content">
+        <div class="character-container" id="img1"><img src="img2/gwikal/tanjiro.jpg" alt="탄지로"></div>
+        <div class="character-container" id="img2"><img src="img2/gwikal/nezuko.jpg" alt="네즈코"></div>
+        <div class="character-container" id="img3"><img src="img2/gwikal/zenitsu.jpg " alt="젠이츠"></div>
+        <div class="character-container" id="img4"><img src="img2/gwikal/inosuke.jpg" alt="이노스케"></div>
+        <div class="character-container" id="img5"><img src="img2/gwikal/shinobu.jpg" alt="시노부"></div>
+        <div class="character-container" id="img6"><img src="img2/gwikal/tengen.jpg" alt="텐겐"></div>
+        <div class="character-container" id="img7"><img src="img2/gwikal/kyojyulo.jpg" alt="쿄쥬로"></div>
+        <div class="character-container" id="img8"><img src="img2/gwikal/muichiro.jpg" alt="무이치로"></div>
+        <div class="character-container" id="img9"><img src="img2/gwikal/micheuli.jpg" alt="미츠리"></div>
+        <div class="character-container" id="img10"><img src="img2/gwikal/obanai.jpg" alt="오바나이"></div>
+        <div class="character-container" id="img11"><img src="img2/gwikal/giyu.jpg" alt="기유"></div>
+        <div class="character-container" id="img12"><img src="img2/gwikal/Sanemi.jpg" alt="사네미"></div>
+        <div class="character-container" id="img13"><img src="img2/gwikal/gyomei.jpg" alt="교메이"></div>
+    </div>
+
+    <!-- 캐릭터 정보 메모 박스 -->
+    <div class="memo-box" id="char-info">캐릭터 정보를 보려면 이미지를 클릭하세요!</div>
+
+    <script>
+        $(document).ready(function() {
+            // 버튼 클릭 시 이미지 토글 (보이기/숨기기)
+            $(".menu button").click(function() {
+                let targetId = "#img" + $(this).data("target");
+                let targetElement = $(targetId);
+
+                if (targetElement.is(":visible")) {
+                    targetElement.fadeOut(500);
+                } else {
+                    targetElement.css({
+                        "display": "block",
+                        "opacity": "0",
+                        "transform": "scale(0.8) rotate(-10deg)"
+                    }).animate({
+                        opacity: 1
+                    }, {
+                        duration: 500,
+                        step: function(now, fx) {
+                            if (fx.prop === "opacity") {
+                                $(this).css("transform", "scale(" + (0.8 + now * 0.2) + ") rotate(" + (-10 + now * 15) + "deg)");
+                            }
+                        }
+                    });
+                }
+            });
+
+            // 캐릭터 클릭 시 정보 표시 (기존 정보 사라지고 새 정보 표시)
+            $(".character-container img").click(function() {
+                let charName = $(this).attr("alt");
+                let charInfo = {
+                    "탄지로": "카마도 탄지로 - 물의 호흡을 사용하는 귀살대 검사",
+                    "젠이츠": "아가츠마 젠이츠 - 벽력일섬! 번개의 호흡을 사용하는 검사",
+                    "이노스케": "하시비라 이노스케 - 짐승의 호흡을 사용하는 야생 검사",
+                    "네즈코": "카마도 네즈코 - 오니가 되었지만 감정을 간직한 존재",
+                    "기유": "토미오카 기유 - 물의 주(柱)로서 귀살대를 이끄는 검사",
+                    "렌고쿠": "렌고쿠 쿄쥬로 - 불의 주(柱)로 불꽃의 호흡을 사용하는 검사",
+                    "텐겐": "우즈이 텐겐 - 음악의 호흡을 사용하는 검사",
+                    "미츠리": "칸로지 미츠리 - 사랑의 호흡을 사용하는 검사",
+                    "교메이": "히메지마 교메이 - 바위의 주(柱)로서 강한 힘을 지닌 검사",
+                    "무이치로": "토키토 무이치로 - 안개의 호흡을 사용하는 검사",
+                    "오바나이": "이구로 오바나이 - 뱀의 호흡을 사용하는 검사",
+                    "시노부": "코쵸우 시노부 - 벌레의 호흡을 사용하는 검사",
+                    "네즈코": "카마도 네즈코 - 오니가 되었지만 감정을 간직한 존재"
+                };
+
+                $("#char-info").text(charInfo[charName]).fadeIn(500);
+            });
+
+            // 더블 클릭 시 정보 창 닫기
+            $(".character-container img").dblclick(function() {
+                $("#char-info").fadeOut(500);
+            });
+        });
+    </script>
+</body>
+</html>
